@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         } else if (id == R.id.menu_about) {
             Toast.makeText(this, "Thông tin sinh viên", Toast.LENGTH_SHORT).show();
+            openAboutActivity();
             return true;
         }
 
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == REQUEST_CODE_ADD_PRODUCT && resultCode == RESULT_OK) {
             Product p = (Product) data.getSerializableExtra("NEW_PRODUCT");
             if (p != null) {
-                products.add(p);  // bạn đang dùng products, không phải lp nhé
+                products.add(p);
                 adapter.notifyDataSetChanged();
                 Toast.makeText(this, "Thêm sản phẩm thành công!", Toast.LENGTH_SHORT).show();
             }
