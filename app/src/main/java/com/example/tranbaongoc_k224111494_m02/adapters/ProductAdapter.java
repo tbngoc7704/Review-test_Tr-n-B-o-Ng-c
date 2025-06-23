@@ -13,18 +13,27 @@ import androidx.annotation.Nullable;
 
 import com.example.tranbaongoc_k224111494_m02.R;
 import com.example.tranbaongoc_k224111494_m02.models.Product;
-import com.squareup.picasso.Picasso; // thêm dependency của Picasso vào build.gradle
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class ProductAdapter extends ArrayAdapter<Product> {
     private Context context;
     private int resource;
+    private ArrayList<Product> products;
 
     public ProductAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Product> products) {
         super(context, resource, products);
         this.context = context;
         this.resource = resource;
+        this.products = products;
+    }
+
+    public void setProducts(ArrayList<Product> newProducts) {
+        this.products = newProducts;
+        clear();
+        addAll(newProducts);
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -38,17 +47,20 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         TextView txtProductPrice = item.findViewById(R.id.txtProductPrice);
         ImageView imgProduct = item.findViewById(R.id.imgProduct);
 
-        Product p = getItem(position);
+        Product p = products.get(position);
         txtProductId.setText("ID: " + p.getId());
         txtProductName.setText(p.getProductName());
         txtProductPrice.setText(p.getUnitPrice() + " VND");
 
-        // Multi-Threading: load ảnh từ internet bằng Picasso
-        Picasso.get()
-                .load(p.getImageLink())
-                .placeholder(R.drawable.ic_placeholder) // placeholder khi ảnh đang tải
-                .error(R.drawable.ic_error) // nếu ảnh lỗi
-                .into(imgProduct);
+        if (p.getImageLink() != null && !p.getImageLink().isEmpty()) {
+            Picasso.get()
+                    .load(p.getImageLink())
+                    .placeholder(R.drawable.ic_placeholder)
+                    .error(R.drawable.ic_error)
+                    .into(imgProduct);
+        } else {
+            imgProduct.setImageResource(R.drawable.ic_placeholder);
+        }
 
         return item;
     }

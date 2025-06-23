@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="#FFFFFF"
+    android:fitsSystemWindows="true">
 
     <TextView
         android:layout_width="match_parent"
@@ -12,7 +14,8 @@
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="#3F51B5"/>
+        android:textColor="#3F51B5"
+        android:layout_marginBottom="16dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -22,7 +25,10 @@
         android:id="@+id/edt_product_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number" />
+        android:inputType="number"
+        android:backgroundTint="#CCCCCC"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="12dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -32,7 +38,10 @@
         android:id="@+id/edt_product_code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text" />
+        android:inputType="text"
+        android:backgroundTint="#CCCCCC"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="12dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -42,7 +51,10 @@
         android:id="@+id/edt_product_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text" />
+        android:inputType="text"
+        android:backgroundTint="#CCCCCC"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="12dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -52,34 +64,48 @@
         android:id="@+id/edt_product_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:backgroundTint="#CCCCCC"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="16dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="10dp">
+        android:gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:weightSum="3">
 
         <Button
             android:id="@+id/btnNew"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="New" />
+            android:layout_marginEnd="8dp"
+            android:text="New"
+            android:backgroundTint="#FF9800"
+            android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/btnSave"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Save" />
+            android:layout_marginEnd="8dp"
+            android:text="Save"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/btnRemove"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Remove" />
+            android:text="Remove"
+            android:backgroundTint="#F44336"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
 </LinearLayout>

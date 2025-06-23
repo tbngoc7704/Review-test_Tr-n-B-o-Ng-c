@@ -11,6 +11,9 @@ public class Product implements Serializable {
     private double unitPrice;
     private String imageLink;
 
+    public Product() {
+    }
+
     public Product(int id, String productCode, String productName, double unitPrice, String imageLink) {
         this.id = id;
         this.productCode = productCode;
@@ -32,12 +35,12 @@ public class Product implements Serializable {
     public void setProductName(String productName) { this.productName = productName; }
     public void setUnitPrice(double unitPrice) { this.unitPrice = unitPrice; }
     public void setImageLink(String imageLink) { this.imageLink = imageLink; }
+
     @NonNull
     @Override
     public String toString() {
-        return id + " - " + productCode
-                + productName +
+        return id + " - " + productCode + " - " + productName +
                 "\nPrice: " + unitPrice +
-                "\nImageLink" +  imageLink;
-}}
-
+                "\nImageLink: " + imageLink;
+    }
+}

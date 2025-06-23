@@ -1,5 +1,8 @@
 package com.example.tranbaongoc_k224111494_m02.models;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
 import java.util.ArrayList;
 
 public class ListProduct {
@@ -66,4 +69,27 @@ public class ListProduct {
         products.add(p19);
         products.add(p20);
 
-    }}
+    }
+    public void getAllProducts(SQLiteDatabase database) {
+        products.clear();
+        Cursor cursor = database.rawQuery("SELECT * FROM Products", null);
+
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(0);
+            String code = cursor.getString(1);
+            String name = cursor.getString(2);
+            double price = cursor.getDouble(3);
+            String imageLink= cursor.getString(4);
+
+            Product p = new Product();
+            p.setId(id);
+            p.setProductCode(code);
+            p.setProductName(name);
+            p.setUnitPrice(price);
+            p.setImageLink(imageLink);
+
+            products.add(p);
+        }
+        cursor.close();
+    }
+}
